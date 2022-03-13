@@ -23,13 +23,10 @@ public class MainActivity extends AppCompatActivity {
         img.startAnimation(zoom);
 
         Handler h = new Handler();
-        h.postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                Intent i = new Intent(getApplicationContext(),MainActivity2.class);
-                startActivity(i);
-                finish();
-            }
+        h.postDelayed(() -> {
+            Intent i = new Intent(getApplicationContext(),MainActivity2.class);
+            startActivity(i);
+            finish();
         },4000);
     }
 }
