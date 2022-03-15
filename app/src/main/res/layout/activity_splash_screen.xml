@@ -6,6 +6,7 @@
     android:layout_width="match_parent"
     tools:ignore="ContentDescription"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     android:background="#FFFFFF"
     tools:context=".MainActivity">
 
@@ -31,7 +32,11 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.481" />
+        app:layout_constraintVertical_bias="0.481"
+        android:shadowColor="@color/black"
+        android:shadowDx="5"
+        android:shadowDy="5"
+        android:shadowRadius="5"/>
 
     <TextView
         android:id="@+id/textView"
@@ -46,6 +51,10 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.514" />
+        app:layout_constraintVertical_bias="0.514"
+        android:shadowColor="@color/black"
+        android:shadowDx="5"
+        android:shadowDy="5"
+        android:shadowRadius="5"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

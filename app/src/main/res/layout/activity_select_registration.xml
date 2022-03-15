@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="1dp"
+    android:background="#FE9F9F"
+    tools:context=".SelectRegistrationActivity">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        app:cardCornerRadius="10dp"
+        app:cardElevation="10dp"
+        android:elevation="10dp"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="27dp"
+        android:layout_marginStart="156dp"
+        android:layout_marginTop="35dp"
+        android:fontFamily="@font/peralta"
+        android:gravity="center"
+        android:text="@string/Blood"
+        android:textColor="#F44335"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        tools:ignore="TextContrastCheck" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="27dp"
+        android:layout_marginStart="160dp"
+        android:layout_marginTop="1dp"
+        android:fontFamily="@font/peralta"
+        android:gravity="center"
+        android:text="@string/Hero"
+        android:textColor="#F4F0D8"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        tools:ignore="TextContrastCheck" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="130dp"
+        android:layout_marginTop="4dp"
+        android:fontFamily="@font/arapeyitalic"
+        android:gravity="center"
+        android:text="@string/safe_blood_saves_lives"
+        android:textColor="#F4F0D8"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        tools:ignore="TextContrastCheck" />
+
+    <ImageView
+        android:id="@+id/image"
+        android:layout_width="239dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/logobh"
+        android:contentDescription="@string/blood_hero_logo"
+        tools:ignore="ImageContrastCheck"
+        />
+
+    <ImageView
+        android:id="@+id/image1"
+        android:layout_width="450dp"
+        android:layout_height="506dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="0dp"
+        android:background="@drawable/rectangle"
+        android:contentDescription="@string/rectangle"
+        android:viewportWidth="626"
+        android:viewportHeight="506"
+        tools:ignore="ImageContrastCheck" />
+
+
+</LinearLayout>

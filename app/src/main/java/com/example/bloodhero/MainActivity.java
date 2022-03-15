@@ -18,7 +18,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_splash_screen);
 
         decorView = getWindow().getDecorView();
         decorView.setOnSystemUiVisibilityChangeListener(visibility -> {
@@ -31,7 +31,7 @@ public class MainActivity extends AppCompatActivity {
 
         Handler h = new Handler();
         h.postDelayed(() -> {
-            Intent i = new Intent(getApplicationContext(),MainActivity2.class);
+            Intent i = new Intent(getApplicationContext(), SelectRegistrationActivity.class);
             startActivity(i);
             finish();
         },4000);

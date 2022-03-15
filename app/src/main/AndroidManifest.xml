@@ -10,10 +10,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.BloodHero">
         <activity
-            android:name=".MainActivity2"
+            android:name=".SelectRegistrationActivity"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"
             android:exported="false" />
         <activity
             android:name=".MainActivity"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

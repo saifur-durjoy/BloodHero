@@ -3,4 +3,7 @@
     <string name="Blood">Blood</string>
     <string name="Welcome">Welcome</string>
     <string name="Hero">Hero</string>
+    <string name="blood_hero_logo">Blood Hero logo</string>
+    <string name="safe_blood_saves_lives">Safe blood saves lives</string>
+    <string name="rectangle">rectangle</string>
 </resources>
