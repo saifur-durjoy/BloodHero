@@ -4,8 +4,14 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/AndroidStudioProjects/BloodHero/app/src/main/res/drawable/buttons_background.xml" value="0.1" />
+        <entry key="..\:/AndroidStudioProjects/BloodHero/app/src/main/res/drawable/header_background.xml" value="0.1" />
         <entry key="..\:/AndroidStudioProjects/BloodHero/app/src/main/res/drawable/ic_person.xml" value="0.1" />
+        <entry key="..\:/AndroidStudioProjects/BloodHero/app/src/main/res/drawable/navigation_selecter.xml" value="0.114" />
+        <entry key="..\:/AndroidStudioProjects/BloodHero/app/src/main/res/drawable/navigation_selector.xml" value="0.114" />
+        <entry key="..\:/AndroidStudioProjects/BloodHero/app/src/main/res/drawable/navigation_view_item_selected.xml" value="0.114" />
         <entry key="..\:/AndroidStudioProjects/BloodHero/app/src/main/res/layout/activity_main.xml" value="0.1" />
+        <entry key="..\:/AndroidStudioProjects/BloodHero/app/src/main/res/layout/header.xml" value="0.184375" />
+        <entry key="..\:/AndroidStudioProjects/BloodHero/app/src/main/res/menu/main_menu.xml" value="0.184375" />
       </map>
     </option>
   </component>
