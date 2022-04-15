@@ -3,10 +3,12 @@ package com.example.bloodhero;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import androidx.annotation.NonNull;
@@ -17,7 +19,7 @@ import de.hdodenhof.circleimageview.CircleImageView;
 import com.google.android.material.navigation.NavigationView;
 
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
      private DrawerLayout drawerLayout;
      private Toolbar toolbar;
@@ -27,6 +29,8 @@ public class MainActivity extends AppCompatActivity {
      private TextView nav_fullname, nav_email, nav_bloodgroup, nav_type;
 
      private DatabaseReference userRef;
+
+
 
 
     @Override
@@ -46,6 +50,8 @@ public class MainActivity extends AppCompatActivity {
 
         drawerLayout.addDrawerListener(toggle);
         toggle.syncState();
+
+        nav_view.setNavigationItemSelectedListener(this::onNavigationItemSelected);
 
         nav_profile_image = nav_view.getHeaderView(0).findViewById(R.id.nav_user_image);
         nav_fullname = nav_view.getHeaderView(0).findViewById(R.id.nav_user_fullname);
@@ -85,5 +91,19 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        */
+
     }
+
+    @Override
+    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+        switch (item.getItemId()){
+            case R.id.profile:
+              Intent intent = new Intent(MainActivity.this, ProfileActivity.class);
+              startActivity(intent);
+        }
+        drawerLayout.closeDrawer(GravityCompat.START);
+        return true;
+    }
+
 }
