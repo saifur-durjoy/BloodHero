@@ -44,7 +44,7 @@ public class ProfileActivity extends AppCompatActivity {
         profileImage = findViewById(R.id.profileImage);
         backButton = findViewById(R.id.backButton);
 
-        DatabaseReference reference = FirebaseDatabase.getInstance().getReference().child("users").child(
+       /* DatabaseReference reference = FirebaseDatabase.getInstance().getReference().child("users").child(
 
                 FirebaseAuth.getInstance().getCurrentUser().getUid()
         );
@@ -80,6 +80,8 @@ public class ProfileActivity extends AppCompatActivity {
                 finish();
             }
         });
+
+        */
 
 
 
