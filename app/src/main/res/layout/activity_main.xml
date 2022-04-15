@@ -23,7 +23,7 @@
             app:popupTheme="@style/ThemeOverlay.AppCompat.Dark"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="#Be5025"/>
+            android:background="#32cd32"/>
 
         <androidx.coordinatorlayout.widget.CoordinatorLayout
             android:layout_width="match_parent"
@@ -48,6 +48,7 @@
         android:id="@+id/nav_view"
         app:headerLayout="@layout/header"
         app:menu="@menu/main_menu"
+        android:layout_gravity="start"
         app:itemIconTint="@drawable/navigation_selector"
         app:itemTextColor="@drawable/navigation_view_item_selected"
         android:layout_width="wrap_content"
