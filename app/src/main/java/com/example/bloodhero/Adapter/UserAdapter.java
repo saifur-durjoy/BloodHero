@@ -40,6 +40,8 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.ViewHolder> {
         final  User user = userList.get(position);
 
         holder.type.setText(user.getType());
+        if(user.getType().equals("donor"))
+            holder.emailNow.setVisibility(View.GONE);
         holder.userName.setText(user.getName());
         holder.userEmail.setText(user.getEmail());
         holder.bloodGroup.setText(user.getBloodgroup());

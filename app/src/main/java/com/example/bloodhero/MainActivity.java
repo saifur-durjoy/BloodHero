@@ -177,6 +177,31 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     }
 
     private void readDonors() {
+        DatabaseReference reference = FirebaseDatabase.getInstance().getReference().child("users");
+        Query query = reference.orderByChild("type").equalTo("donor");
+        query.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                userList.clear();
+                for(DataSnapshot dataSnapshot : snapshot.getChildren()){
+                    User user = snapshot.getValue(User.class);
+                    userList.add(user);
+                }
+                userAdapter.notifyDataSetChanged();
+                progressBar.setVisibility(View.GONE);
+
+                if(userList.isEmpty()){
+                    Toast.makeText(MainActivity.this, "No Recipients Found",
+                            Toast.LENGTH_SHORT).show();
+                    progressBar.setVisibility(View.GONE);
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
     }
 
     @Override
