@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.BloodHero">
         <activity
+            android:name=".MainActivity2"
+            android:exported="false" />
+        <activity
             android:name=".CategorySelectedActivity"
             android:exported="false" />
         <activity

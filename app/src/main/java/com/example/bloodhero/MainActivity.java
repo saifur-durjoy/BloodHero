@@ -157,7 +157,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                     User user = snapshot.getValue(User.class);
                     userList.add(user);
                 }
-                userAdapter.notifyDataSetChanged();
                 progressBar.setVisibility(View.GONE);
 
                 if(userList.isEmpty()){
