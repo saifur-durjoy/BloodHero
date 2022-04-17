@@ -14,7 +14,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="40dp"
         app:cardCornerRadius="10dp"
-        app:cardBackgroundColor="#FE9F9F"
+        app:cardBackgroundColor="#653535"
         app:cardElevation="10dp"
         android:elevation="10dp"
         >
@@ -24,6 +24,7 @@
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
             android:background="#FE9F9F"
+            android:layout_gravity="center"
             android:orientation="vertical"
             >
 
@@ -31,7 +32,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="100dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="00dp"
         android:fontFamily="@font/arapeyitalic"
         android:gravity="center"
         android:text="Donor Registration"
@@ -119,7 +120,7 @@
         android:layout_width="match_parent"
         android:layout_gravity="center"
         android:gravity="center"
-        android:background="#fff"
+        android:background="#FE9F9F"
         android:layout_marginStart="9dp"
         android:layout_marginTop="10dp"
         android:layout_marginBottom="10dp"
