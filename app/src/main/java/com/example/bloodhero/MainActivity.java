@@ -50,7 +50,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
      private RecyclerView recyclerView;
      private ProgressBar progressBar;
-
      private List<User> userList;
      private UserAdapter userAdapter;
 
@@ -136,7 +135,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                     else{
                         nav_profile_image.setImageResource(R.drawable.profile_image);
                     }
-
                 }
             }
 
@@ -191,7 +189,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 progressBar.setVisibility(View.GONE);
 
                 if(userList.isEmpty()){
-                    Toast.makeText(MainActivity.this, "No Recipients Found",
+                    Toast.makeText(MainActivity.this, "No Donors Found",
                             Toast.LENGTH_SHORT).show();
                     progressBar.setVisibility(View.GONE);
                 }
