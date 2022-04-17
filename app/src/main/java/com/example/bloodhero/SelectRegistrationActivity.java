@@ -1,16 +1,42 @@
 package com.example.bloodhero;
 
-import androidx.appcompat.app.AppCompatActivity;
-
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 public class SelectRegistrationActivity extends AppCompatActivity {
     private View decorView;
+
+    public SelectRegistrationActivity() {
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_select_registration);
+
+        Button donorButton = findViewById(R.id.donorButton);
+        Button recipientButton = findViewById(R.id.recipientButton);
+        View backButton = findViewById(R.id.backButton);
+
+        donorButton.setOnClickListener(view -> {
+            Intent intent = new Intent (SelectRegistrationActivity.this, DonorRegistrationActivity.class);
+            startActivity(intent);
+        });
+
+        recipientButton.setOnClickListener(view -> {
+            Intent intent = new Intent (SelectRegistrationActivity.this, RecipientRegistrationActivity.class);
+            startActivity(intent);
+        });
+
+        backButton.setOnClickListener(view -> {
+            Intent intent = new Intent (SelectRegistrationActivity.this, LoginActivity.class);
+            startActivity(intent);
+        });
+
         decorView = getWindow().getDecorView();
         decorView.setOnSystemUiVisibilityChangeListener(visibility -> {
             if (visibility == 0)

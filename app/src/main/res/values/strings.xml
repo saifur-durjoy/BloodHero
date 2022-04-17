@@ -6,4 +6,29 @@
     <string name="blood_hero_logo">Blood Hero logo</string>
     <string name="safe_blood_saves_lives">Safe blood saves lives</string>
     <string name="rectangle">rectangle</string>
+    <string name="sign_up_as">Sign-up As</string>
+    <string name="donor_registration">Donor Registration</string>
+    <string name="Recipient_registration" />
+    <string name="recipient_registration">Recipient Registration</string>
+    <string name="already_here_sign_in">Already Here? Sign-in</string>
+    <string name="enter_full_name">Enter Full Name</string>
+    <string name="enter_id_number">Enter ID Number</string>
+    <string name="enter_phone_number">Enter Phone Number</string>
+    <string name="enter_email">Enter Email</string>
+    <string name="enter_password">Enter Password</string>
+    <string name="sign_up_now">Sign-up Now</string>
+    <string name="loginactivity">LoginActivity</string>
+    <string name="go_to_registration_page">Go to Registration Page</string>
+    <string-array name="bloodgroups">
+        <item>Select your blood group</item>
+        <item>A+</item>
+        <item>A-</item>
+        <item>B+</item>
+        <item>B-</item>
+        <item>AB+</item>
+        <item>AB-</item>
+        <item>O+</item>
+        <item>O-</item>
+
+    </string-array>
 </resources>

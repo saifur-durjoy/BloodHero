@@ -69,17 +69,63 @@
         tools:ignore="ImageContrastCheck"
         />
 
-    <ImageView
-        android:id="@+id/image1"
-        android:layout_width="450dp"
-        android:layout_height="506dp"
-        android:layout_gravity="center"
-        android:layout_marginTop="0dp"
-        android:background="@drawable/rectangle"
-        android:contentDescription="@string/rectangle"
-        android:viewportWidth="626"
-        android:viewportHeight="506"
-        tools:ignore="ImageContrastCheck" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="140dp"
+        android:layout_marginTop="40dp"
+        android:fontFamily="@font/arapeyitalic"
+        android:gravity="center"
+        android:text="@string/sign_up_as"
+        android:textColor="#800020"
+        android:textSize="27sp"
+        android:textStyle="bold"
+        tools:ignore="TextContrastCheck" />
 
+        <Button
+            android:id="@+id/donorButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="top"
+            android:layout_marginTop="50dp"
+            android:fontFamily="@font/arapeyitalic"
+            android:background="@drawable/buttons_background"
+            android:text="@string/donor_registration"
+            android:textAllCaps="false"
+            android:textColor="@color/black"
+            android:textSize="30sp"
+            android:textStyle="bold"
+            style="?android:attr/buttonBarButtonStyle" />
+
+        <Button
+            android:id="@+id/recipientButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/arapeyitalic"
+            android:layout_gravity="top"
+            android:layout_marginTop="30dp"
+            android:background="@drawable/buttons_background"
+            android:text="@string/recipient_registration"
+            android:textAllCaps="false"
+            android:textColor="@color/black"
+            android:textSize="30sp"
+            android:textStyle="bold"
+            style="?android:attr/buttonBarButtonStyle" />
+    <TextView
+        android:id="@+id/backButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/already_here_sign_in"
+        android:layout_marginTop="30dp"
+        android:textColor="#800020"
+        android:textStyle="bold"
+        android:textSize="20sp"
+        android:layout_gravity="center"
+        android:layout_marginStart="73sp"
+        android:fontFamily="@font/arapeyitalic"
+        />
 
 </LinearLayout>
+
+
+
