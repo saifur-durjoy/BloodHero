@@ -81,18 +81,23 @@
         </menu>
     </item>
 
-    <item android:title="Communicate">
+    <item android:title="Blood and Health">
         <menu>
             <group android:checkableBehavior="single">
                 <item
-                    android:id="@+id/about"
+                    android:id="@+id/bloodvolume"
                     android:icon="@drawable/ic_about"
-                    android:title="About"/>
+                    android:title="Blood Volume"/>
 
                 <item
-                    android:id="@+id/share"
-                    android:icon="@drawable/ic_share"
-                    android:title="Share"/>
+                    android:id="@+id/donationCapacity"
+                    android:icon="@drawable/ic_about"
+                    android:title="Check Donation Eligibilty"/>
+
+                <item
+                    android:id="@+id/bmiCheck"
+                    android:icon="@drawable/ic_about"
+                    android:title="BMI Calculate"/>
             </group>
         </menu>
     </item>

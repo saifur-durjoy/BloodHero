@@ -9,49 +9,38 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.Button;
+
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import com.bumptech.glide.Glide;
 import de.hdodenhof.circleimageview.CircleImageView;
 
 import com.example.bloodhero.Adapter.UserAdapter;
 import com.example.bloodhero.Model.User;
 import com.google.android.material.navigation.NavigationView;
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.Query;
-import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
-     private DrawerLayout drawerLayout;
-     private Toolbar toolbar;
-     private NavigationView nav_view;
+    private DrawerLayout drawerLayout;
+    private Toolbar toolbar;
+    private NavigationView nav_view;
 
-     private CircleImageView nav_profile_image;
-     private TextView nav_fullname, nav_email, nav_bloodgroup, nav_type;
+    private CircleImageView nav_profile_image;
+    private TextView nav_fullname, nav_email, nav_bloodgroup, nav_type;
 
-     private DatabaseReference userRef;
+    //private DatabaseReference userRef;
 
-     private RecyclerView recyclerView;
-     private ProgressBar progressBar;
-     private List<User> userList;
-     private UserAdapter userAdapter;
+    private RecyclerView recyclerView;
+    private ProgressBar progressBar;
+    private List<User> userList;
+    private UserAdapter userAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -85,10 +74,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         recyclerView.setAdapter(userAdapter);
 
-        DatabaseReference ref = FirebaseDatabase.getInstance().getReference().child("users")
-                .child(FirebaseAuth.getInstance().getCurrentUser().getUid());
+        //DatabaseReference ref = FirebaseDatabase.getInstance().getReference().child("users")
+        //        .child(FirebaseAuth.getInstance().getCurrentUser().getUid());
 
-        ref.addValueEventListener(new ValueEventListener() {
+        /*ref.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 String type = snapshot.child("type").getValue().toString();
@@ -103,15 +92,17 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             }
         });
 
+         */
+
         nav_profile_image = nav_view.getHeaderView(0).findViewById(R.id.nav_user_image);
         nav_fullname = nav_view.getHeaderView(0).findViewById(R.id.nav_user_fullname);
         nav_email = nav_view.getHeaderView(0).findViewById(R.id.nav_user_email);
         nav_bloodgroup = nav_view.getHeaderView(0).findViewById(R.id.nav_user_bloodgroup);
         nav_type = nav_view.getHeaderView(0).findViewById(R.id.nav_user_type);
 
-       userRef = FirebaseDatabase.getInstance().getReference().child("users").child(
-               FirebaseAuth.getInstance().getCurrentUser().getUid())
-       ;
+       /*userRef = FirebaseDatabase.getInstance().getReference().child("users").child(
+               FirebaseAuth.getInstance().getCurrentUser().getUid());
+
         userRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -144,9 +135,11 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             }
         });
 
+        */
+
     }
 
-    private void readRecipients() {
+    /*private void readRecipients() {
         DatabaseReference reference = FirebaseDatabase.getInstance().getReference().child("users");
         Query query = reference.orderByChild("type").equalTo("recipient");
         query.addValueEventListener(new ValueEventListener() {
@@ -199,64 +192,82 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
             }
         });
-    }
 
-    @Override
-    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-        switch (item.getItemId()){
-            case R.id.aplus:
-                Intent intent1 = new Intent(MainActivity.this, CategorySelectedActivity.class);
-                intent1.putExtra("group", "A+");
-                startActivity(intent1);
-                break;
+     }*/
 
-            case R.id.aminus:
-                Intent intent2 = new Intent(MainActivity.this, CategorySelectedActivity.class);
-                intent2.putExtra("group", "A-");
-                startActivity(intent2);
-                break;
 
-            case R.id.bplus:
-                Intent intent3 = new Intent(MainActivity.this, CategorySelectedActivity.class);
-                intent3.putExtra("group", "B+");
-                startActivity(intent3);
-                break;
 
-            case R.id.bminus:
-                Intent intent4 = new Intent(MainActivity.this, CategorySelectedActivity.class);
-                intent4.putExtra("group", "B-");
-                startActivity(intent4);
-                break;
+        @Override
+        public boolean onNavigationItemSelected (@NonNull MenuItem item){
+            switch (item.getItemId()) {
+                case R.id.aplus:
+                    Intent intent1 = new Intent(MainActivity.this, CategorySelectedActivity.class);
+                    intent1.putExtra("group", "A+");
+                    startActivity(intent1);
+                    break;
 
-            case R.id.abplus:
-                Intent intent5 = new Intent(MainActivity.this, CategorySelectedActivity.class);
-                intent5.putExtra("group", "AB+");
-                startActivity(intent5);
-                break;
+                case R.id.aminus:
+                    Intent intent2 = new Intent(MainActivity.this, CategorySelectedActivity.class);
+                    intent2.putExtra("group", "A-");
+                    startActivity(intent2);
+                    break;
 
-            case R.id.abnegative:
-                Intent intent6 = new Intent(MainActivity.this, CategorySelectedActivity.class);
-                intent6.putExtra("group", "AB-");
-                startActivity(intent6);
-                break;
+                case R.id.bplus:
+                    Intent intent3 = new Intent(MainActivity.this, CategorySelectedActivity.class);
+                    intent3.putExtra("group", "B+");
+                    startActivity(intent3);
+                    break;
 
-            case R.id.oplus:
-                Intent intent7 = new Intent(MainActivity.this, CategorySelectedActivity.class);
-                intent7.putExtra("group", "O+");
-                startActivity(intent7);
-                break;
+                case R.id.bminus:
+                    Intent intent4 = new Intent(MainActivity.this, CategorySelectedActivity.class);
+                    intent4.putExtra("group", "B-");
+                    startActivity(intent4);
+                    break;
 
-            case R.id.onegative:
-                Intent intent8 = new Intent(MainActivity.this, CategorySelectedActivity.class);
-                intent8.putExtra("group", "O-");
-                startActivity(intent8);
-                break;
+                case R.id.abplus:
+                    Intent intent5 = new Intent(MainActivity.this, CategorySelectedActivity.class);
+                    intent5.putExtra("group", "AB+");
+                    startActivity(intent5);
+                    break;
 
-            case R.id.compatible:
-                Intent intent11 = new Intent(MainActivity.this, CategorySelectedActivity.class);
-                intent11.putExtra("group", "Compatible with me");
-                startActivity(intent11);
-                break;
+                case R.id.abnegative:
+                    Intent intent6 = new Intent(MainActivity.this, CategorySelectedActivity.class);
+                    intent6.putExtra("group", "AB-");
+                    startActivity(intent6);
+                    break;
+
+                case R.id.oplus:
+                    Intent intent7 = new Intent(MainActivity.this, CategorySelectedActivity.class);
+                    intent7.putExtra("group", "O+");
+                    startActivity(intent7);
+                    break;
+
+                case R.id.onegative:
+                    Intent intent8 = new Intent(MainActivity.this, CategorySelectedActivity.class);
+                    intent8.putExtra("group", "O-");
+                    startActivity(intent8);
+                    break;
+
+                case R.id.compatible:
+                    Intent intent11 = new Intent(MainActivity.this, CategorySelectedActivity.class);
+                    intent11.putExtra("group", "Compatible with me");
+                    startActivity(intent11);
+                    break;
+
+                case R.id.bloodvolume:
+                    Intent intent12 = new Intent(MainActivity.this, BloodVolume.class);
+                    startActivity(intent12);
+                    break;
+
+                case R.id.donationCapacity:
+                    Intent intent13 = new Intent(MainActivity.this, CategorySelectedActivity.class);
+                    startActivity(intent13);
+                    break;
+
+                case R.id.bmiCheck:
+                    Intent intent14 = new Intent(MainActivity.this, CategorySelectedActivity.class);
+                    startActivity(intent14);
+                    break;
 
             /*case R.id.profile:
                Intent intent9 = new Intent(MainActivity.this, ProfileActivity.class);
@@ -269,8 +280,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 break;
                */
 
+            }
+            drawerLayout.closeDrawer(GravityCompat.START);
+            return true;
         }
-        drawerLayout.closeDrawer(GravityCompat.START);
-        return true;
     }
-}
+
+

@@ -16,8 +16,12 @@
         <entry key="..\:/AndroidStudioProjects/BloodHero/app/src/main/res/drawable/navigation_selecter.xml" value="0.114" />
         <entry key="..\:/AndroidStudioProjects/BloodHero/app/src/main/res/drawable/navigation_selector.xml" value="0.114" />
         <entry key="..\:/AndroidStudioProjects/BloodHero/app/src/main/res/drawable/navigation_view_item_selected.xml" value="0.114" />
+        <entry key="..\:/AndroidStudioProjects/BloodHero/app/src/main/res/layout/activity_blood_pressure.xml" value="0.16530797101449277" />
+        <entry key="..\:/AndroidStudioProjects/BloodHero/app/src/main/res/layout/activity_blood_volume.xml" value="0.16530797101449277" />
+        <entry key="..\:/AndroidStudioProjects/BloodHero/app/src/main/res/layout/activity_blood_volume_men.xml" value="0.16530797101449277" />
+        <entry key="..\:/AndroidStudioProjects/BloodHero/app/src/main/res/layout/activity_blood_volume_women.xml" value="0.16530797101449277" />
         <entry key="..\:/AndroidStudioProjects/BloodHero/app/src/main/res/layout/activity_category_selected.xml" value="0.16530797101449277" />
-        <entry key="..\:/AndroidStudioProjects/BloodHero/app/src/main/res/layout/activity_main.xml" value="0.1" />
+        <entry key="..\:/AndroidStudioProjects/BloodHero/app/src/main/res/layout/activity_main.xml" value="0.12" />
         <entry key="..\:/AndroidStudioProjects/BloodHero/app/src/main/res/layout/activity_main2.xml" value="0.16530797101449277" />
         <entry key="..\:/AndroidStudioProjects/BloodHero/app/src/main/res/layout/activity_profile.xml" value="0.1" />
         <entry key="..\:/AndroidStudioProjects/BloodHero/app/src/main/res/layout/header.xml" value="0.184375" />

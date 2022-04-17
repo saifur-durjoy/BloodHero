@@ -40,7 +40,7 @@ public class CategorySelectedActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_category_selected);
 
-        toolbar = findViewById(R.id.toolbar);
+        /*toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -68,8 +68,10 @@ public class CategorySelectedActivity extends AppCompatActivity {
             }
         }
 
-    }
+         */
 
+    }
+/*
     private void getCompatibleUsers() {
         DatabaseReference ref = FirebaseDatabase.getInstance().getReference().child("users")
                 .child(FirebaseAuth.getInstance().getCurrentUser().getUid());
@@ -155,6 +157,8 @@ public class CategorySelectedActivity extends AppCompatActivity {
         });
 
     }
+
+
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()){
@@ -167,4 +171,9 @@ public class CategorySelectedActivity extends AppCompatActivity {
 
     }
 
+ */
+
+
+
 }
+
