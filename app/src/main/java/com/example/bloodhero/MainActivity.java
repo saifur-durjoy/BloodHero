@@ -207,53 +207,53 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         switch (item.getItemId()){
             case R.id.aplus:
                 Intent intent1 = new Intent(MainActivity.this, CategorySelectedActivity.class);
-                intent1.putExtra("group", "A+")
+                intent1.putExtra("group", "A+");
                 startActivity(intent1);
                 break;
 
             case R.id.aminus:
                 Intent intent2 = new Intent(MainActivity.this, CategorySelectedActivity.class);
-                intent2.putExtra("group", "A-")
+                intent2.putExtra("group", "A-");
                 startActivity(intent2);
                 break;
 
             case R.id.bplus:
                 Intent intent3 = new Intent(MainActivity.this, CategorySelectedActivity.class);
-                intent3.putExtra("group", "B+")
+                intent3.putExtra("group", "B+");
                 startActivity(intent3);
                 break;
 
             case R.id.bminus:
                 Intent intent4 = new Intent(MainActivity.this, CategorySelectedActivity.class);
-                intent4.putExtra("group", "B-")
+                intent4.putExtra("group", "B-");
                 startActivity(intent4);
                 break;
 
             case R.id.abplus:
                 Intent intent5 = new Intent(MainActivity.this, CategorySelectedActivity.class);
-                intent5.putExtra("group", "AB+")
+                intent5.putExtra("group", "AB+");
                 startActivity(intent5);
                 break;
 
-            case R.id.aminus:
+            case R.id.abnegative:
                 Intent intent6 = new Intent(MainActivity.this, CategorySelectedActivity.class);
-                intent6.putExtra("group", "AB-")
+                intent6.putExtra("group", "AB-");
                 startActivity(intent6);
                 break;
 
             case R.id.oplus:
                 Intent intent7 = new Intent(MainActivity.this, CategorySelectedActivity.class);
-                intent7.putExtra("group", "O+")
+                intent7.putExtra("group", "O+");
                 startActivity(intent7);
                 break;
 
             case R.id.onegative:
                 Intent intent8 = new Intent(MainActivity.this, CategorySelectedActivity.class);
-                intent8.putExtra("group", "O-")
+                intent8.putExtra("group", "O-");
                 startActivity(intent8);
                 break;
 
-            case R.id.profile:
+            /*case R.id.profile:
                Intent intent9 = new Intent(MainActivity.this, ProfileActivity.class);
                startActivity(intent9);
                break;
@@ -262,6 +262,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 Intent intent10 = new Intent(MainActivity.this, LoginActivity.class);
                 startActivity(intent10);
                 break;
+               */
+
         }
         drawerLayout.closeDrawer(GravityCompat.START);
         return true;
