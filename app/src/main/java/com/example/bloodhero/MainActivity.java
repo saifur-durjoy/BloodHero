@@ -205,9 +205,63 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()){
-           case R.id.profile:
-               // Intent intent = new Intent(MainActivity.this, ProfileActivity.class);
-               // startActivity(intent);
+            case R.id.aplus:
+                Intent intent1 = new Intent(MainActivity.this, CategorySelectedActivity.class);
+                intent1.putExtra("group", "A+")
+                startActivity(intent1);
+                break;
+
+            case R.id.aminus:
+                Intent intent2 = new Intent(MainActivity.this, CategorySelectedActivity.class);
+                intent2.putExtra("group", "A-")
+                startActivity(intent2);
+                break;
+
+            case R.id.bplus:
+                Intent intent3 = new Intent(MainActivity.this, CategorySelectedActivity.class);
+                intent3.putExtra("group", "B+")
+                startActivity(intent3);
+                break;
+
+            case R.id.bminus:
+                Intent intent4 = new Intent(MainActivity.this, CategorySelectedActivity.class);
+                intent4.putExtra("group", "B-")
+                startActivity(intent4);
+                break;
+
+            case R.id.abplus:
+                Intent intent5 = new Intent(MainActivity.this, CategorySelectedActivity.class);
+                intent5.putExtra("group", "AB+")
+                startActivity(intent5);
+                break;
+
+            case R.id.aminus:
+                Intent intent6 = new Intent(MainActivity.this, CategorySelectedActivity.class);
+                intent6.putExtra("group", "AB-")
+                startActivity(intent6);
+                break;
+
+            case R.id.oplus:
+                Intent intent7 = new Intent(MainActivity.this, CategorySelectedActivity.class);
+                intent7.putExtra("group", "O+")
+                startActivity(intent7);
+                break;
+
+            case R.id.onegative:
+                Intent intent8 = new Intent(MainActivity.this, CategorySelectedActivity.class);
+                intent8.putExtra("group", "O-")
+                startActivity(intent8);
+                break;
+
+            case R.id.profile:
+               Intent intent9 = new Intent(MainActivity.this, ProfileActivity.class);
+               startActivity(intent9);
+               break;
+
+            case R.id.loggout:
+                Intent intent10 = new Intent(MainActivity.this, LoginActivity.class);
+                startActivity(intent10);
+                break;
         }
         drawerLayout.closeDrawer(GravityCompat.START);
         return true;
