@@ -19,6 +19,9 @@
     <string name="sign_up_now">Sign-up Now</string>
     <string name="loginactivity">LoginActivity</string>
     <string name="go_to_registration_page">Go to Registration Page</string>
+    <string name="sign_in_now">Sign-in Now</string>
+    <string name="don_t_have_an_account_sign_up">Don\'t Have an Account? Sign-up</string>
+    <string name="forgot_password">Forgot Password?</string>
     <string-array name="bloodgroups">
         <item>Select your blood group</item>
         <item>A+</item>

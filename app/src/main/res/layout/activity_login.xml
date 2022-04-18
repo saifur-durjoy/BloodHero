@@ -4,20 +4,159 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="1dp"
+    android:background="#FE9F9F"
     tools:context=".LoginActivity">
 
-    <Button
-        android:id="@+id/registerButton"
+    <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:fontFamily="@font/arapeyitalic"
+        android:layout_marginTop="70dp"
+        app:cardCornerRadius="10dp"
         android:layout_gravity="center"
-        android:layout_marginTop="0dp"
-        android:background="@drawable/buttons_background"
-        android:text="@string/go_to_registration_page"
-        android:textAllCaps="false"
-        android:textColor="@color/black"
-        android:textSize="30sp"
-        android:textStyle="bold"
-         />
+        app:cardElevation="10dp"
+        app:cardBackgroundColor="#F44335"
+        android:elevation="10dp"
+        >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:background="#FE9F9F"
+            android:orientation="vertical"
+            >
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="158dp"
+                android:layout_marginTop="00dp"
+                android:fontFamily="@font/arapeyitalic"
+                android:gravity="center"
+                android:text="Log-In"
+                android:textColor="#800020"
+                android:textSize="27sp"
+                android:textStyle="bold"
+                tools:ignore="HardcodedText,TextContrastCheck" />
+
+            <ImageView
+                android:id="@+id/image"
+                android:layout_width="239dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/logobh"
+                android:contentDescription="@string/blood_hero_logo"
+                tools:ignore="ImageContrastCheck"
+                />
+
+
+
+
+
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:theme="@style/TextInputLayoutStyle"
+                app:boxStrokeColor="#000"
+                app:hintTextAppearance="@color/black"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/loginEmail"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:drawableStart="@drawable/ic_mail"
+                    android:drawablePadding="10dp"
+                    android:hint="@string/enter_email"
+                    android:inputType="textPassword"
+                    android:textColor="#000"
+                    android:textColorHint="#000"
+                    android:textSize="18sp"
+
+                    />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:theme="@style/TextInputLayoutStyle"
+                app:boxStrokeColor="#000"
+                app:hintTextAppearance="@color/black"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense">
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/loginPassword"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/enter_password"
+                    android:drawablePadding="10dp"
+                    android:textColor="#000"
+                    android:textSize="18sp"
+                    android:inputType="textPassword"
+                    android:textColorHint="#000"
+                    android:drawableStart="@drawable/ic_lock"
+
+                    />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <Spinner
+                android:id="@+id/bloodGroupsSpinner"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginStart="9dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:background="#FE9F9F"
+                android:entries="@array/bloodgroups"
+                android:gravity="center"
+                tools:ignore="TouchTargetSizeCheck" />
+
+            <TextView
+                android:id="@+id/forgotpassword"
+                android:text="@string/forgot_password"
+                android:textColor="#800020"
+                android:gravity="end"
+                android:layout_marginTop="10dp"
+                android:textStyle="bold"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+            />
+            
+            <Button
+                android:id="@+id/loginButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/arapeyitalic"
+                android:layout_gravity="top"
+                android:layout_marginTop="0dp"
+                android:background="@drawable/buttons_background"
+                android:text="@string/sign_in_now"
+                android:textAllCaps="false"
+                android:textColor="#F4F0D8"
+                android:textSize="30sp"
+                android:textStyle="bold"
+                style="?android:attr/buttonBarButtonStyle"
+                />
+            <TextView
+                android:id="@+id/backButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/don_t_have_an_account_sign_up"
+                android:layout_marginTop="30dp"
+                android:layout_marginBottom="30dp"
+                android:textColor="#800020"
+                android:textStyle="bold"
+                android:textSize="20sp"
+                android:layout_gravity="center"
+                android:layout_marginStart="53sp"
+                android:fontFamily="@font/arapeyitalic"
+                />
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
 </LinearLayout>
