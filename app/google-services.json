@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "642066110503",
+    "firebase_url": "https://blood-hero-nsu2022-default-rtdb.firebaseio.com",
+    "project_id": "blood-hero-nsu2022",
+    "storage_bucket": "blood-hero-nsu2022.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:642066110503:android:fc7ab969c0f8cf36771602",
+        "android_client_info": {
+          "package_name": "com.example.bloodhero"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "642066110503-oclbsm5k6ob03a7j6a6k152s2pmvpsk6.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.bloodhero",
+            "certificate_hash": "b3c5e0979a56c87dcff8ba7c0abeac413c8b6e6a"
+          }
+        },
+        {
+          "client_id": "642066110503-crj0sdrqritef81s739g3amp8e0pv02h.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCZtkyFcva34pmZVx4cI-FJJ7Tbh40EaT8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "642066110503-crj0sdrqritef81s739g3amp8e0pv02h.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
