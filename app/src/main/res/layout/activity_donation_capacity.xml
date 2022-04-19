@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_height="match_parent"
+    tools:context=".DonationCapacityActivity">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolBar"
+        android:elevation="4dp"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Dark"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#ff0000"/>
+
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/profileImage"
+        android:src="@drawable/profile_image"
+        android:layout_gravity="center"
+        android:layout_margin="10dp"
+        android:layout_width="100dp"
+        android:layout_height="100dp"/>
+
+
+    <TextView
+        android:id="@+id/titleCapacity"
+        android:layout_margin="5dp"
+        android:textSize="28sp"
+        android:gravity="center"
+        android:textColor="#FF9100"
+        android:textStyle="bold"
+        android:layout_width="match_parent"
+        android:lines="2"
+        android:layout_height="100dp"
+        android:text="Check Blood Volume you are eligible to donate in a month"/>
+
+
+    <EditText
+        android:id="@+id/bloodVolumeCapacity"
+        android:layout_marginTop="15dp"
+        android:layout_marginBottom="15dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:ems="12"
+        android:hint=" Input Blood Volume in ML"
+        android:drawableStart="@drawable/ic_person"
+        android:inputType="phone"
+        tools:layout_editor_absoluteX="105dp"
+        tools:layout_editor_absoluteY="281dp" />
+
+
+    <Button
+        android:id="@+id/calculateButtonCapacity"
+        android:layout_marginEnd="20dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="15dp"
+        android:textSize="20sp"
+        android:gravity="center"
+        android:textColor="#fff"
+        android:background="@drawable/buttons_background"
+        android:text="check"
+        android:textStyle="bold"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <TextView
+        android:id="@+id/resultCapacity"
+        android:hint="Amount"
+        android:layout_margin="50dp"
+        android:textStyle="bold"
+        android:textSize="25sp"
+        android:gravity="center"
+        android:textColor="#000"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"/>
+
+    <Button
+        android:id="@+id/buttonToBloodvolume"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="50dp"
+        android:background="@drawable/buttons_background"
+        android:gravity="center"
+        android:text="Don't Know your Blood Volume!!  Click Here.."
+        android:textColor="#fff"
+        android:textSize="19sp"
+        android:textStyle="bold" />
+
+
+</LinearLayout>
