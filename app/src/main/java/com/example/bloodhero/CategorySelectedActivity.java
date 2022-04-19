@@ -24,23 +24,48 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 import java.util.List;
 
-
+/**
+ * This Class represents the task of filtering out the Specific Blood Group's user list
+ * @author Saifur Rahman Durjoy (Saifur-Durjoy)
+ * @since 2022
+ */
 public class CategorySelectedActivity extends AppCompatActivity
 {
+    /**
+     * One Toolbar instance named toolbar, to display toolbar above the displayed tab
+     */
     private Toolbar toolBar;
+    /**
+     * One RecyclerView instance named recyclerView, for displaying in list
+     */
     private RecyclerView recyclerView;
-
+    /**
+     * One List instance named userList, for storing user information
+     */
     private List<User> userList;
+    /**
+     * One List Adapter instance named userAdapter, for fetching user info
+     */
     private Adapter userAdapter;
-
+    /**
+     * One String instance named title, for fetching containing string data
+     */
     private String title = "";
 
+    /**
+     * Auto generated Java Class Built in method.
+     * This method is used for establishing the connection between front end and back end.
+     * @param savedInstanceState
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_category_selected);
 
+        /**
+         * connecting the instances declared above with the front end (i.e. from layout file)
+         */
         toolBar = findViewById(R.id.toolbar);
         setSupportActionBar(toolBar);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
@@ -56,11 +81,18 @@ public class CategorySelectedActivity extends AppCompatActivity
         userAdapter = (Adapter) new UserAdapter(CategorySelectedActivity.this, userList);
         recyclerView.setAdapter((RecyclerView.Adapter) userAdapter);
 
+        /**
+         * setting compatible tab's title
+         */
+
         if(getIntent().getExtras() != null)
         {
             title = getIntent().getStringExtra("group");
             getSupportActionBar().setTitle("Blood group" + title);
 
+            /**
+             * if the string value then shows the compatible users
+             */
             if(title.equals("Compatible with me"))
             {
                // getCompatibleUsers();
@@ -71,22 +103,40 @@ public class CategorySelectedActivity extends AppCompatActivity
             }
         }
     }
-/*
+
+    /**
+     * This method filters out and displays the users compatible with the currently loggen in user
+     * by fetching info from the database
+     */
     private void getCompatibleUsers()
     {
+        /**
+         * Declaring instance to fetch info from the firebase database used
+         */
         DatabaseReference ref = FirebaseDatabase.getInstance().getReference().child("users")
                 .child(FirebaseAuth.getInstance().getCurrentUser().getUid());
         ref.addValueEventListener(new ValueEventListener()
         {
+            /**
+             * Firebase class built in method to query for data
+             * @param snapshot
+             */
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot)
             {
                 String result;
                 String type = snapshot.child("type").getValue().toString();
+                /**
+                 * if current user type is donor then only show the recipients
+                 */
                 if(type.equals("donor"))
                 {
                     result = "recipient";
-                }else
+                }
+                /**
+                 * if current user type is recipient then only show the donors
+                 */
+                else
                 {
                     result = "donor";
                 }
@@ -97,6 +147,10 @@ public class CategorySelectedActivity extends AppCompatActivity
                 Query query = reference.orderByChild("search").equalTo(result+bloodGroup);
                 query.addValueEventListener(new ValueEventListener()
                 {
+                    /**
+                     * Firebase class built in method to query for data and updates
+                     * @param snapshot
+                     */
                     @Override
                     public void onDataChange(@NonNull DataSnapshot snapshot)
                     {
@@ -124,22 +178,36 @@ public class CategorySelectedActivity extends AppCompatActivity
             }
         });
     }
-
+    /**
+     * This method read the users data and only shows the users with filtering out by the blood group stored
+     * in the database
+     */
     private void readUsers()
     {
         DatabaseReference ref = FirebaseDatabase.getInstance().getReference().child("users")
                 .child(FirebaseAuth.getInstance().getCurrentUser().getUid());
         ref.addValueEventListener(new ValueEventListener()
         {
+            /**
+             * Firebase class built in method to query for data
+             * @param snapshot
+             */
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot)
             {
                 String result;
                 String type = snapshot.child("type").getValue().toString();
+                /**
+                 * if current user type is donor then only show the recipients
+                 */
                 if(type.equals("donor"))
                 {
                     result = "recipient";
-                }else
+                }
+                /**
+                 * if current user type is recipient then only show the donors
+                 */
+                else
                 {
                     result = "donor";
                 }
@@ -148,6 +216,10 @@ public class CategorySelectedActivity extends AppCompatActivity
                 Query query = reference.orderByChild("search").equalTo(result + title);
                 query.addValueEventListener(new ValueEventListener()
                 {
+                    /**
+                     * Firebase class built in method to query for data and updates
+                     * @param snapshot
+                     */
                     @Override
                     public void onDataChange(@NonNull DataSnapshot snapshot)
                     {
@@ -175,8 +247,10 @@ public class CategorySelectedActivity extends AppCompatActivity
             }
         });
     }
- */
-
+    /**
+     * This method takes user to a new activity to home when clicked
+     * @param item
+     */
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item)
     {

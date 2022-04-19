@@ -10,33 +10,43 @@ import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
-import android.widget.TextView;
 
-import com.bumptech.glide.Glide;
 
-import de.hdodenhof.circleimageview.CircleImageView;
-
-import com.google.android.material.navigation.NavigationView;
-
-import de.hdodenhof.circleimageview.CircleImageView;
+/**
+ * This Class represents the task of opening the tab for blood volume calculation.
+ * It shows two buttons to navigate users to male or female calculation.
+ * @author Saifur Rahman Durjoy (Saifur-Durjoy)
+ * @since 2022
+ */
 
 public class BloodVolume extends AppCompatActivity
 {
-    private DrawerLayout drawerLayout;
-    private Toolbar toolBar;
+    /**
+     * Two Button instances named maleButton and femaleButton to navigate to calculation on click for male and female respecttively
+     */
+
     private Button maleButton, femaleButton;
+
+    /**
+     * Auto generated Java Class Built in method.
+     * This method is used for establishing the connection between front end and back end.
+     * @param savedInstanceState
+     */
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_blood_volume);
-
-        toolBar = findViewById(R.id.toolBar);
-        drawerLayout = findViewById(R.id.drawerLayout);
+        /**
+         * connecting the instances declared above by with the front end (i.e. from layout file)
+         */
         maleButton = findViewById(R.id.maleButton);
         femaleButton = findViewById(R.id.femaleButton);
 
+        /**
+         * on clicking male button to start generating a new activity for opening Blood volume men calculation
+         */
         maleButton.setOnClickListener(new View.OnClickListener()
         {
             @Override
@@ -46,6 +56,9 @@ public class BloodVolume extends AppCompatActivity
             }
         });
 
+        /**
+         * on clicking female button to start generating a new activity for opening Blood volume women calculation
+         */
         femaleButton.setOnClickListener(new View.OnClickListener()
         {
             @Override
@@ -55,13 +68,18 @@ public class BloodVolume extends AppCompatActivity
             }
         });
     }
-
+    /**
+     * This method is responsible for opening to blood volume calculation men tab
+     */
     private void openBloodVolumeWomen()
     {
         Intent intent = new Intent(BloodVolume.this, BloodVolumeWomen.class);
         startActivity(intent);
     }
 
+    /**
+     * This method is responsible for opening to blood volume calculation women tab
+     */
     private void openBloodVolumeMen()
     {
         Intent intent = new Intent(BloodVolume.this, BloodVolumeMen.class);

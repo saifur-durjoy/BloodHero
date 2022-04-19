@@ -288,8 +288,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                     break;
 
                 case R.id.donationCapacity:
-                    Intent intent13 = new Intent(MainActivity.this, DonationCapacityActivity.class);
-                    startActivity(intent13);
+                    //Intent intent13 = new Intent(MainActivity.this, DonationCapacityActivity.class);
+                    //startActivity(intent13);
                     break;
 
                 case R.id.profile:
