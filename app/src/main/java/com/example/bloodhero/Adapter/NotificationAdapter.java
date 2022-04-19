@@ -21,6 +21,13 @@ import java.util.List;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 
+/**
+ * This class represent the notification
+ * CSE327 project documentations
+ * @author Arfana Rahman_1831172042
+ * @since 2022
+ */
+
 public class NotificationAdapter extends RecyclerView.Adapter<NotificationAdapter.ViewHolder>{
 
     private Context context;
@@ -40,6 +47,11 @@ public class NotificationAdapter extends RecyclerView.Adapter<NotificationAdapte
 
     }
 
+    /**
+     * Shows the notification with the date.
+     * @param holder
+     * @param position
+     */
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         final Notification notification = notificationList.get(position);
@@ -51,7 +63,10 @@ public class NotificationAdapter extends RecyclerView.Adapter<NotificationAdapte
 
     }
 
-
+    /**
+     * Get the notification from the users
+     * @return Shows the notification list size
+     */
 
     @Override
     public int getItemCount() {
@@ -77,11 +92,15 @@ public class NotificationAdapter extends RecyclerView.Adapter<NotificationAdapte
     private void getUserInfo(final CircleImageView circleImageView, final TextView nameTextView, final String senderId) {
         DatabaseReference reference = FirebaseDatabase.getInstance().getReference().child("users").child(senderId);
         reference.addValueEventListener(new ValueEventListener() {
+            /**
+             * Firebase class built in method to query for data and updates
+             * @param snapshot
+             */
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 User user = snapshot.getValue(User.class);
                 nameTextView.setText(user.getName());
-                Glide.with(context).load(user.getProfilepictureurl()).into(circleImageView)
+                Glide.with(context).load(user.getProfilepictureurl()).into(circleImageView);
             }
 
             @Override

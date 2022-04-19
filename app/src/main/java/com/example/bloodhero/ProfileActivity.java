@@ -12,20 +12,39 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 
-public class ProfileActivity extends AppCompatActivity {
+/**
+ * This class represent the Profile of every users of Blood Hero App
+ * CSE327 project documentations
+ * @author Arfana Rahman_1831172042
+ * @since 2022
+ */
 
+public class ProfileActivity extends AppCompatActivity {
+    /**
+     * One Toolbar instance named toolbar, to display toolbar above the displayed tab
+     */
     private Toolbar toolbar;
     private TextView type, name, email, idNumber, phoneNumber, bloodGroup;
     private CircleImageView profileImage;
     private Button backButton;
 
+    /**
+     * This method is used for making connection between front end and back end.
+     * @param savedInstanceState Shows the Donor or recipient Profile
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile);
+
 
         toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -44,12 +63,16 @@ public class ProfileActivity extends AppCompatActivity {
         profileImage = findViewById(R.id.profileImage);
         backButton = findViewById(R.id.backButton);
 
-       /* DatabaseReference reference = FirebaseDatabase.getInstance().getReference().child("users").child(
+        DatabaseReference reference = FirebaseDatabase.getInstance().getReference().child("users").child(
 
                 FirebaseAuth.getInstance().getCurrentUser().getUid()
         );
 
         reference.addValueEventListener(new ValueEventListener(){
+            /**
+             * Firebase class built in method to query for data and updates
+             * @param snapshot
+             */
             @override
             public void onDataChange(@NonNull DataSnapshot snapshot){
                 if(snapshot.exist()){
@@ -81,7 +104,7 @@ public class ProfileActivity extends AppCompatActivity {
             }
         });
 
-        */
+
 
 
 

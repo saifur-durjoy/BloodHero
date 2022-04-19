@@ -19,21 +19,39 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 import java.util.List;
 
-public class SentEmailActivity extends AppCompatActivity {
+/**
+ * This class represent the Sent Email notification and shows that who sent the mail
+ * CSE327 project documentations
+ * @author Arfana Rahman_1831172042
+ * @since 2022
+ */
 
+public class SentEmailActivity extends AppCompatActivity {
+    /**
+     * One Toolbar instance named toolbar, to display toolbar above the displayed tab
+     */
     private Toolbar toolbar;
+
+    /**
+     * One RecyclerView instance named recyclerView, for displaying in list
+     */
     private RecyclerView recyclerView;
 
     List<String> idList;
     List<User> userList;
     UserAdapter userAdapter;
 
+    /**
+     * This method is used for making connection between front end and back end.
+     */
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sent_email);
-
+        /**
+         * connecting the instances declared above with the front end
+         */
         toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setTitle("people sent Emails");
@@ -62,6 +80,11 @@ public class SentEmailActivity extends AppCompatActivity {
         );
 
       reference.addValueEventListener(new ValueEventListener() {
+
+          /**
+           * Firebase class built in method to query for data and updates
+           * @param snapshot
+           */
           @Override
           public void onDataChange(@NonNull DataSnapshot snapshot) {
               idList.clear();
@@ -82,6 +105,10 @@ public class SentEmailActivity extends AppCompatActivity {
         DatabaseReference reference = FirebaseDatabase.getInstance().getReference().child("user");
 
         reference.addValueEventListener(new ValueEventListener() {
+            /**
+             * Firebase class built in method to query for data
+             * @param snapshot
+             */
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 userList.clear();

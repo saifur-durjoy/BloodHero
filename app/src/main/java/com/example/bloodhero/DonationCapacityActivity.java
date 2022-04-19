@@ -9,11 +9,22 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+/**
+ * This class is used for Checking whether a person is eligible for Blood donation.
+ * CSE327.6 Project java documentation
+ * @author Arfana Rahman_1831172042
+ * @since 2022
+ */
 public class DonationCapacityActivity extends AppCompatActivity
 {
     EditText userBloodVolume;
     TextView resultCapacity;
     Button calculateButtonCapacity,buttonRedirectBmi ;
+
+    /**
+     * This method is used for Calculate Donation Capacity
+     * @param savedInstanceState The Capacity of a person's donation
+     */
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -41,6 +52,9 @@ public class DonationCapacityActivity extends AppCompatActivity
         });
     }
 
+    /**
+     * Open the Blood Volume Tab If a person don't know his/her Blood Volume.
+     */
     private void openBloodVolumeTab()
     {
         Intent intent = new Intent(DonationCapacityActivity.this, BloodVolume.class);

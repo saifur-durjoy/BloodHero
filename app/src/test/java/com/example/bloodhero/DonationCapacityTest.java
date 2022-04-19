@@ -4,7 +4,16 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
+/**
+ * This class is used for Unit Testing on Donation Capacity
+ * @author Arfana Rahman_1831172042
+ * @since 2022
+ */
 public class DonationCapacityTest {
+
+    /**
+     * This is the test case 1 for input = 0 (Valid Input)
+     */
 
     @Test
     public void testCaseOne() {
@@ -18,6 +27,9 @@ public class DonationCapacityTest {
 
         assertEquals(expected,output,delta);
     }
+    /**
+     * This is the test case 2 for invalid inputs (Less than 0)
+     */
 
     @Test
     public void testCaseTwo() {
@@ -31,6 +43,10 @@ public class DonationCapacityTest {
 
         assertEquals(expected,output,delta);
     }
+
+    /**
+     * This is the test case 3 for valid inputs (For Positive Number)
+     */
 
     @Test
     public void testCaseThree() {
