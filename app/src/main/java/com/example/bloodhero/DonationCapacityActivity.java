@@ -61,7 +61,7 @@ public class DonationCapacityActivity extends AppCompatActivity
         else
         {
             float capacity = (float) (0.13 * bloodVolumeValue);
-            String calculation = "Elgible Blood Volume you can Donate: " + capacity + " ml";
+            String calculation = "Eligible Blood Volume you can Donate: " + capacity + " ml";
             resultCapacity.setText(calculation);
         }
 
