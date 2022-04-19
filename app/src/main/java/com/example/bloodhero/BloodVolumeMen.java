@@ -44,9 +44,19 @@ public class BloodVolumeMen extends AppCompatActivity
         float weightValue = Float.parseFloat(userProvidedWeight);
         float heightValue = Float.parseFloat(userProvidedHeight);
 
-        float bloodVolume = (float) ((0.0003668*heightValue*heightValue*heightValue)+(32.2*weightValue)+604);
+        float bloodVolume;
 
-        String calculation = "Blood Volume: " +bloodVolume +" ml";
-        resultMen.setText(calculation);
+        if(weightValue<=0 || heightValue <=0)
+        {
+            bloodVolume = 0;
+            String calculation ="Blood Volume :"+bloodVolume+ " Invalid input!";
+            resultMen.setText(calculation);
+        }
+        else
+        {
+            bloodVolume = (float) ((0.0003668 * heightValue * heightValue * heightValue) + (32.2 * weightValue) + 604);
+            String calculation = "Blood volume:" +bloodVolume+ " ml";
+            resultMen.setText(calculation);
+        }
     }
 }
