@@ -12,6 +12,12 @@ import com.google.firebase.auth.FirebaseAuth;
 public class MainActivity1 extends AppCompatActivity {
 
     private Button button;
+    /**
+     * Logout Button
+     * Login Activity to Menu
+     * @author Abrar Karim
+     * @version 0.1
+     */
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

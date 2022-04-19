@@ -6,12 +6,25 @@ import android.view.View;
 import android.widget.Button;
 
 import androidx.appcompat.app.AppCompatActivity;
+/**
+ * User will Select donor or recipient
+ * Sign in button for those who are already signed up
+ * @author Abrar Karim
+ * @version 0.1
+ */
+
 
 public class SelectRegistrationActivity extends AppCompatActivity {
     private View decorView;
 
     public SelectRegistrationActivity() {
     }
+    /**
+     * Donor and recipient selection
+     * Selection page to Registration page
+     * @author Abrar Karim
+     * @version 0.1
+     */
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

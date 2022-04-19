@@ -19,6 +19,13 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
+/**
+ * Users will Login here
+ * @author Abrar Karim
+ * @version 0.1
+ */
+
+
 public class LoginActivity extends AppCompatActivity {
     private View decorView;
     private TextInputEditText loginEmail, loginPassword;
@@ -28,6 +35,12 @@ public class LoginActivity extends AppCompatActivity {
     private FirebaseAuth mAuth;
     private FirebaseAuth.AuthStateListener authStateListener;
 
+    /**
+     * Connecting to Database
+     * Check user validity
+     * @author Abrar Karim
+     * @version 0.1
+     */
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -62,6 +75,13 @@ public class LoginActivity extends AppCompatActivity {
         });
 
         loginButton.setOnClickListener(new View.OnClickListener() {
+            /**
+             * Setting email and password
+             * error message for null values in email and password
+             * @author Abrar Karim
+             * @version 0.1
+             */
+
             @Override
             public void onClick(View view) {
                 final String email = loginEmail.getText().toString().trim();
@@ -80,6 +100,13 @@ public class LoginActivity extends AppCompatActivity {
                      loader.show();
 
                      mAuth.signInWithEmailAndPassword(email, password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                         /**
+                          * Successful Login
+                          * login page to Menu page
+                          * @author Abrar Karim
+                          * @version 0.1
+                          */
+
                          @Override
                          public void onComplete(@NonNull Task<AuthResult> task) {
                              if (task.isSuccessful()){

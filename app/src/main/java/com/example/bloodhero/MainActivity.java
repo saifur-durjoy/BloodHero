@@ -17,6 +17,12 @@ public class MainActivity extends AppCompatActivity {
     private View decorView;
     Animation zoom;
     ImageView img;
+    /**
+     * Annimation for Splash Screen
+     * error message for null values in email and password
+     * @author Abrar Karim
+     * @version 0.1
+     */
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

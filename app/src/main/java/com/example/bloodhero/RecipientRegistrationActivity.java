@@ -35,7 +35,11 @@ import java.util.HashMap;
 import java.util.Map;
 
 import de.hdodenhof.circleimageview.CircleImageView;
-
+/**
+ * Recipients will be Registered Here
+ * @author Abrar Karim
+ * @version 0.1
+ */
 
 public class RecipientRegistrationActivity extends AppCompatActivity {
 
@@ -77,6 +81,10 @@ public class RecipientRegistrationActivity extends AppCompatActivity {
         mAuth = FirebaseAuth.getInstance();
 
         profile_image.setOnClickListener(new View.OnClickListener() {
+            /**
+             * Open (choose image)
+             * @author Abrar Karim
+             */
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(Intent.ACTION_PICK);
@@ -87,6 +95,13 @@ public class RecipientRegistrationActivity extends AppCompatActivity {
         });
 
         registerButton.setOnClickListener(new View.OnClickListener() {
+            /**
+             * For putting values
+             * Error Messages
+             * After Registration screen message
+             * @author Abrar Karim
+             * @version 0.1
+             */
             @Override
             public void onClick(View view) {
                 final String email = registerEmail.getText().toString().trim();
@@ -126,6 +141,11 @@ public class RecipientRegistrationActivity extends AppCompatActivity {
                     loader.show();
 
                     mAuth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                        /**
+                         * Database Connection
+                         * Database Error
+                         * @author Abrar Karim
+                         */
                         @Override
                         public void onComplete(@NonNull Task<AuthResult> task) {
                             if(!task.isSuccessful()){
@@ -146,6 +166,10 @@ public class RecipientRegistrationActivity extends AppCompatActivity {
                                 userInfo.put("search","recipient" + bloodGroup);
 
                                 userDatabaseRef.updateChildren(userInfo).addOnCompleteListener(new OnCompleteListener() {
+                                    /**
+                                     * Successful Registration
+                                     * @author Abrar Karim
+                                     */
                                     @Override
                                     public void onComplete(@NonNull Task task) {
                                         if (task.isSuccessful()){
@@ -179,6 +203,10 @@ public class RecipientRegistrationActivity extends AppCompatActivity {
 
                                     uploadTask.addOnFailureListener(new OnFailureListener() {
                                         @Override
+                                        /**
+                                         * Unsuccessful Image Upload message
+                                         * @author Abrar Karim
+                                         */
                                         public void onFailure(@NonNull Exception e) {
                                             Toast.makeText(RecipientRegistrationActivity.this, "Upload Failed", Toast.LENGTH_SHORT).show();
                                         }
@@ -190,6 +218,10 @@ public class RecipientRegistrationActivity extends AppCompatActivity {
                                             if (taskSnapshot.getMetadata() !=null && taskSnapshot.getMetadata().getReference() !=null){
                                                 Task<Uri> result = taskSnapshot.getStorage().getDownloadUrl();
                                                 result.addOnSuccessListener(new OnSuccessListener<Uri>() {
+                                                    /**
+                                                     * Image Upload Message
+                                                     * @author Abrar Karim
+                                                     */
                                                     @Override
                                                     public void onSuccess(Uri uri) {
                                                         String imageUrl = toString();
@@ -256,7 +288,10 @@ public class RecipientRegistrationActivity extends AppCompatActivity {
         }
 
     }
-
+    /**
+     * Hiding Navigation Panel
+     * @author Abrar Karim
+     */
     private int hideSystemBars(){
         return View.SYSTEM_UI_FLAG_LAYOUT_STABLE
                 | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY

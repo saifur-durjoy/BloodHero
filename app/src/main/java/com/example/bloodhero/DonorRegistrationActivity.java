@@ -35,8 +35,11 @@ import java.util.HashMap;
 import java.util.Map;
 
 import de.hdodenhof.circleimageview.CircleImageView;
-
-
+/**
+ * Donor will be Registered Here
+ * @author Abrar Karim
+ * @version 0.1
+*/
 public class DonorRegistrationActivity extends AppCompatActivity {
 
     private View decorView;
@@ -54,7 +57,10 @@ public class DonorRegistrationActivity extends AppCompatActivity {
 
     public DonorRegistrationActivity() {
     }
-
+    /**
+     * Registering buttons
+     * @author Abrar Karim
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -79,6 +85,10 @@ public class DonorRegistrationActivity extends AppCompatActivity {
         mAuth = FirebaseAuth.getInstance();
 
         profile_image.setOnClickListener(new View.OnClickListener() {
+            /**
+             * Open (choose image)
+             * @author Abrar Karim
+             */
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(Intent.ACTION_PICK);
@@ -89,6 +99,14 @@ public class DonorRegistrationActivity extends AppCompatActivity {
         });
 
         registerButton.setOnClickListener(new View.OnClickListener() {
+            /**
+             * For putting values
+             * Error Messages
+             * After Registration screen message
+             * @author Abrar Karim
+             * @version 0.1
+             */
+
             @Override
             public void onClick(View view) {
                 final String email = registerEmail.getText().toString().trim();
@@ -128,6 +146,11 @@ public class DonorRegistrationActivity extends AppCompatActivity {
                     loader.show();
 
           mAuth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+              /**
+               * Database Connection
+               * Database Error
+               * @author Abrar Karim
+               */
               @Override
               public void onComplete(@NonNull Task<AuthResult> task) {
                  if(!task.isSuccessful()){
@@ -148,6 +171,10 @@ public class DonorRegistrationActivity extends AppCompatActivity {
                      userInfo.put("search","donor" + bloodGroup);
 
                      userDatabaseRef.updateChildren(userInfo).addOnCompleteListener(new OnCompleteListener() {
+                         /**
+                          * Successful Registration
+                          * @author Abrar Karim
+                          */
                          @Override
                          public void onComplete(@NonNull Task task) {
                              if (task.isSuccessful()){
@@ -180,6 +207,10 @@ public class DonorRegistrationActivity extends AppCompatActivity {
                          UploadTask uploadTask = filePath.putBytes(data);
 
                          uploadTask.addOnFailureListener(new OnFailureListener() {
+                             /**
+                              * Unsuccessful Image Upload message
+                              * @author Abrar Karim
+                              */
                              @Override
                              public void onFailure(@NonNull Exception e) {
                                  Toast.makeText(DonorRegistrationActivity.this, "Upload Failed", Toast.LENGTH_SHORT).show();
@@ -198,6 +229,10 @@ public class DonorRegistrationActivity extends AppCompatActivity {
                                              Map newImageMap = new HashMap();
                                              newImageMap.put("profilepictureurl", imageUrl);
                                              userDatabaseRef.updateChildren(newImageMap).addOnCompleteListener(new OnCompleteListener() {
+                                                 /**
+                                                  * Image Upload Message
+                                                  * @author Abrar Karim
+                                                  */
                                                  @Override
                                                  public void onComplete(@NonNull Task task) {
                                                      if (task.isSuccessful()){
@@ -258,6 +293,11 @@ public class DonorRegistrationActivity extends AppCompatActivity {
         }
 
     }
+
+    /**
+     * Hiding Navigation Panel
+     * @author Abrar Karim
+     */
 
     private int hideSystemBars(){
         return View.SYSTEM_UI_FLAG_LAYOUT_STABLE
