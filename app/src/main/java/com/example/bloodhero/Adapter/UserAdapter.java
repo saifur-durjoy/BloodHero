@@ -28,18 +28,39 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.List;
 
 import de.hdodenhof.circleimageview.CircleImageView;
-
+/**
+ * This class represents users list to send mail and filtering our query
+ * @author Saifur Rahman Durjoy (Saifur-Durjoy)
+ * @since 2022
+ */
 public class UserAdapter extends RecyclerView.Adapter<UserAdapter.ViewHolder>
 {
+    /**
+     * Context instance declared here
+     */
     private Context context;
+    /**
+     * One List Adapter instance named userAdapter, for fetching user info
+     */
     private List<User> userList;
 
+    /**
+     * Constructor method of user Adapter
+     * @param context
+     * @param userList
+     */
     public UserAdapter(Context context, List<User> userList)
     {
         this.context = context;
         this.userList = userList;
     }
 
+    /**
+     * Auto generated Java Class Built in method.
+     * This method is used for establishing layout of users from front end
+     * @param parent
+     * @param viewType
+     */
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType)
@@ -48,6 +69,11 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.ViewHolder>
         return new ViewHolder(view);
     }
 
+    /**
+     * Auto generated Java Class Built in method.
+     * @param holder
+     * @param position
+     */
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position)
     {
@@ -56,6 +82,9 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.ViewHolder>
 
         if(user.getType().equals("donor"))
         {
+            /**
+             * displaying user info that matches to the database
+             */
             holder.emailNow.setVisibility(View.VISIBLE);
             holder.userName.setText(user.getName());
             holder.userEmail.setText(user.getEmail());
@@ -65,6 +94,10 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.ViewHolder>
 
             final String nameOfTheReciever = user.getName();
             final String idOfTheReciever = user.getId();
+
+            /**
+             * to send the dialog box of the email along with the email body
+             */
 
             holder.emailNow.setOnClickListener(new View.OnClickListener()
             {
@@ -83,6 +116,10 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.ViewHolder>
 
                                    reference.addValueEventListener(new ValueEventListener()
                                    {
+                                       /**
+                                        * method used to send the info on the mail body
+                                        * @param snapshot
+                                        */
                                        @Override
                                        public void onDataChange(@NonNull DataSnapshot snapshot)
                                        {
@@ -133,14 +170,28 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.ViewHolder>
         }
     }
 
+    /**
+     * method the check for populated user
+     * @return userlist.size()
+     */
     @Override
     public int getItemCount()
     {
         return userList.size();
     }
 
+
+     /**
+     * This class describes an item view for created adapter
+     * @author Saifur Rahman Durjoy (Saifur-Durjoy)
+     * @since 2022
+     */
+
     public class ViewHolder extends RecyclerView.ViewHolder
     {
+        /**
+         * instances belonging to the class
+         */
         public CircleImageView userProfileImage;
         public TextView type, userName, userEmail, phoneNumber, bloodGroup;
         public Button emailNow;
@@ -148,6 +199,10 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.ViewHolder>
         public ViewHolder(@NonNull View itemView)
         {
             super(itemView);
+
+            /**
+             * connecting the front end with backend
+             */
 
             userProfileImage = itemView.findViewById(R.id.userProfileImage);
             type = itemView.findViewById(R.id.type);

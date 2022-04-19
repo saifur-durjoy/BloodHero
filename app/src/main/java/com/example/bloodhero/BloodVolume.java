@@ -32,7 +32,6 @@ public class BloodVolume extends AppCompatActivity
      * This method is used for establishing the connection between front end and back end.
      * @param savedInstanceState
      */
-
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {

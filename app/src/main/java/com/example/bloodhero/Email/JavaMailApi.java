@@ -21,12 +21,34 @@ import javax.mail.Transport;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 
+/**
+ * This class represents the functions for sending email to a user from the app
+ * @author Saifur Rahman Durjoy (Saifur-Durjoy)
+ * @since 2022
+ */
 public class JavaMailApi extends AsyncTask<Void, Void, Void> {
 
+    /**
+     * Context instance declared here
+     */
     private Context context;
+    /**
+     * Session instance declared named session
+     */
     private Session session;
+    /**
+     * three string instances for the mail body
+     */
     private String email, subject, message;
 
+    /**
+     * Constructor method of mail api
+     * @param context
+     * @param email
+     * @param subject
+     * @param message
+     *
+     */
     public JavaMailApi(Context context, String email, String subject, String message) {
         this.context = context;
         this.email = email;
@@ -34,9 +56,14 @@ public class JavaMailApi extends AsyncTask<Void, Void, Void> {
         this.message = message;
     }
 
+    /**
+     * instaced declared here for showing the progessbar
+     */
     ProgressDialog progressDialog;
 
-
+    /**
+     * pre excecute method handles progress bar before an email gets sent successfully
+     */
     @Override
     protected void onPreExecute() {
         progressDialog = new ProgressDialog(context);
@@ -46,6 +73,9 @@ public class JavaMailApi extends AsyncTask<Void, Void, Void> {
         super.onPreExecute();
     }
 
+    /**
+     * method for establishig the connection with online gmail port to deliver the message
+     */
     @Override
     protected Void doInBackground(Void... voids) {
         Properties properties = new Properties();
@@ -62,6 +92,9 @@ public class JavaMailApi extends AsyncTask<Void, Void, Void> {
 
             }
         });
+        /**
+         * exception handler when emailing is unsuccesfull
+         */
 
         MimeMessage mimeMessage = new MimeMessage(session);
         try {
@@ -78,12 +111,20 @@ public class JavaMailApi extends AsyncTask<Void, Void, Void> {
         return null;
     }
 
+    /**
+     * post excecute method handles the activity screen after a mail gets delivered successfully
+     * it opens a new alert dialog box
+     */
    @Override
     protected void onPostExecute(Void aVoid) {
         progressDialog.dismiss();
         startAlertDialog();
         super.onPostExecute(aVoid);
     }
+
+    /**
+     * method for starting the dialog after on click activity
+     */
 
     private void startAlertDialog() {
         AlertDialog.Builder myDialog = new AlertDialog.Builder(context);
@@ -94,6 +135,9 @@ public class JavaMailApi extends AsyncTask<Void, Void, Void> {
         final AlertDialog dialog = myDialog.create();
         dialog.setCancelable(false);
 
+        /**
+         * close button instance closes the dialog box once clicked
+         */
         Button closeButton = myView.findViewById(R.id.closeButton);
         closeButton.setOnClickListener(new View.OnClickListener() {
             @Override

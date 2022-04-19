@@ -36,6 +36,7 @@
     <option name="OUTPUT_DIRECTORY" value="$USER_HOME$/Desktop/Documentation" />
     <option name="OPTION_DOCUMENT_TAG_AUTHOR" value="true" />
     <option name="OPTION_DOCUMENT_TAG_DEPRECATED" value="false" />
+    <option name="OPEN_IN_BROWSER" value="false" />
     <option name="OPTION_INCLUDE_LIBS" value="true" />
   </component>
   <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
