@@ -1,1 +1,0 @@
-memberSearchIndex = [{"p":"com.example.bloodhero.Email","c":"Util","l":"EMAIL"},{"p":"com.example.bloodhero.Email","c":"Util","l":"PASSWORD"},{"p":"com.example.bloodhero.Email","c":"Util","l":"Util()","url":"%3Cinit%3E()"}]
