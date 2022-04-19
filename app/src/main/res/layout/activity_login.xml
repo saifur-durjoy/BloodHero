@@ -73,7 +73,7 @@
                     android:drawableStart="@drawable/ic_mail"
                     android:drawablePadding="10dp"
                     android:hint="@string/enter_email"
-                    android:inputType="textPassword"
+                    android:inputType="text"
                     android:textColor="#000"
                     android:textColorHint="#000"
                     android:textSize="18sp"
@@ -103,18 +103,6 @@
                     />
             </com.google.android.material.textfield.TextInputLayout>
 
-            <Spinner
-                android:id="@+id/bloodGroupsSpinner"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginStart="9dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginBottom="10dp"
-                android:background="#FE9F9F"
-                android:entries="@array/bloodgroups"
-                android:gravity="center"
-                tools:ignore="TouchTargetSizeCheck" />
 
             <TextView
                 android:id="@+id/forgotpassword"
