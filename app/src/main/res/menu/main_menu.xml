@@ -94,10 +94,6 @@
                     android:icon="@drawable/ic_about"
                     android:title="Check Donation Eligibilty"/>
 
-                <item
-                    android:id="@+id/bmiCheck"
-                    android:icon="@drawable/ic_about"
-                    android:title="BMI Calculate"/>
             </group>
         </menu>
     </item>

@@ -14,28 +14,38 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.view.View;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 
+import com.bumptech.glide.Glide;
 import com.example.bloodhero.Adapter.UserAdapter;
 import com.example.bloodhero.Model.User;
 import com.google.android.material.navigation.NavigationView;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
+import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
-
+public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener
+{
     private DrawerLayout drawerLayout;
-    private Toolbar toolbar;
-    private NavigationView nav_view;
+    private Toolbar toolBar;
+    private NavigationView navView;
 
-    private CircleImageView nav_profile_image;
-    private TextView nav_fullname, nav_email, nav_bloodgroup, nav_type;
+    private CircleImageView navProfileImage;
+    private TextView navFullName, navEmail, navBloodGroup, navType;
 
-    //private DatabaseReference userRef;
+    private DatabaseReference userRef;
 
     private RecyclerView recyclerView;
     private ProgressBar progressBar;
@@ -43,24 +53,25 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     private UserAdapter userAdapter;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState)
+    {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        toolbar = findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
+        toolBar = findViewById(R.id.toolbar);
+        setSupportActionBar(toolBar);
         getSupportActionBar().setTitle("Blood Hero");
 
         drawerLayout = findViewById(R.id.drawerLayout);
-        nav_view = findViewById(R.id.nav_view);
+        navView = findViewById(R.id.nav_view);
 
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(MainActivity.this, drawerLayout,
-                toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
+                toolBar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
 
         drawerLayout.addDrawerListener(toggle);
         toggle.syncState();
 
-        nav_view.setNavigationItemSelectedListener(this::onNavigationItemSelected);
+        navView.setNavigationItemSelectedListener(this::onNavigationItemSelected);
 
         recyclerView = findViewById(R.id.recyclerview);
         progressBar = findViewById(R.id.progressbar);
@@ -73,13 +84,15 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         userAdapter = new UserAdapter(MainActivity.this, userList);
 
         recyclerView.setAdapter(userAdapter);
+/*
+        DatabaseReference ref = FirebaseDatabase.getInstance().getReference().child("users")
+                .child(FirebaseAuth.getInstance().getCurrentUser().getUid());
 
-        //DatabaseReference ref = FirebaseDatabase.getInstance().getReference().child("users")
-        //        .child(FirebaseAuth.getInstance().getCurrentUser().getUid());
-
-        /*ref.addValueEventListener(new ValueEventListener() {
+        ref.addValueEventListener(new ValueEventListener()
+        {
             @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
+            public void onDataChange(@NonNull DataSnapshot snapshot)
+            {
                 String type = snapshot.child("type").getValue().toString();
                 if(type.equals("donor")){
                     readRecipients();
@@ -87,72 +100,80 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             }
 
             @Override
-            public void onCancelled(@NonNull DatabaseError error) {
+            public void onCancelled(@NonNull DatabaseError error)
+            {
 
             }
         });
+ */
+/*
+        navProfileImage = navView.getHeaderView(0).findViewById(R.id.nav_user_image);
+        navFullName = navView.getHeaderView(0).findViewById(R.id.nav_user_fullname);
+        navEmail = navView.getHeaderView(0).findViewById(R.id.nav_user_email);
+        navBloodGroup = navView.getHeaderView(0).findViewById(R.id.nav_user_bloodgroup);
+        navType = navView.getHeaderView(0).findViewById(R.id.nav_user_type);
 
-         */
-
-        nav_profile_image = nav_view.getHeaderView(0).findViewById(R.id.nav_user_image);
-        nav_fullname = nav_view.getHeaderView(0).findViewById(R.id.nav_user_fullname);
-        nav_email = nav_view.getHeaderView(0).findViewById(R.id.nav_user_email);
-        nav_bloodgroup = nav_view.getHeaderView(0).findViewById(R.id.nav_user_bloodgroup);
-        nav_type = nav_view.getHeaderView(0).findViewById(R.id.nav_user_type);
-
-       /*userRef = FirebaseDatabase.getInstance().getReference().child("users").child(
+       userRef = FirebaseDatabase.getInstance().getReference().child("users").child(
                FirebaseAuth.getInstance().getCurrentUser().getUid());
 
-        userRef.addValueEventListener(new ValueEventListener() {
+        userRef.addValueEventListener(new ValueEventListener()
+        {
             @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
+            public void onDataChange(@NonNull DataSnapshot snapshot)
+            {
                 if (snapshot.exists()) {
                     String name = snapshot.child("name").getValue().toString();
-                    nav_fullname.setText(name);
+                    navFullName.setText(name);
 
                     String email = snapshot.child("email").getValue().toString();
-                    nav_email.setText(email);
+                    navEmail.setText(email);
 
-                    String bloodgroup = snapshot.child("bloodgroup").getValue().toString();
-                    nav_bloodgroup.setText(bloodgroup);
+                    String bloodGroup = snapshot.child("bloodgroup").getValue().toString();
+                    navBloodGroup.setText(bloodgroup);
 
                     String type = snapshot.child("type").getValue().toString();
-                    nav_type.setText(type);
+                    navType.setText(type);
 
-                    if(snapshot.hasChild("profilepictureurl")) {
-                        String imageurl = snapshot.child("imageurl").getValue().toString();
-                        Glide.with(getApplicationContext()).load(imageurl).into(nav_profile_image);
+                    if(snapshot.hasChild("profilepictureurl"))
+                    {
+                        String imageUrl = snapshot.child("imageurl").getValue().toString();
+                        Glide.with(getApplicationContext()).load(imageurl).into(navProfileImage);
                     }
-                    else{
-                        nav_profile_image.setImageResource(R.drawable.profile_image);
+                    else
+                    {
+                        navProfileImage.setImageResource(R.drawable.profile_image);
                     }
                 }
             }
 
             @Override
-            public void onCancelled(@NonNull DatabaseError error) {
+            public void onCancelled(@NonNull DatabaseError error)
+            {
 
             }
         });
-
-        */
-
+ */
     }
-
-    /*private void readRecipients() {
+/*
+    private void readRecipients()
+    {
         DatabaseReference reference = FirebaseDatabase.getInstance().getReference().child("users");
         Query query = reference.orderByChild("type").equalTo("recipient");
-        query.addValueEventListener(new ValueEventListener() {
+        query.addValueEventListener(new ValueEventListener()
+        {
             @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
+            public void onDataChange(@NonNull DataSnapshot snapshot)
+            {
                 userList.clear();
-                for(DataSnapshot dataSnapshot : snapshot.getChildren()){
+                for(DataSnapshot dataSnapshot : snapshot.getChildren())
+                {
                     User user = snapshot.getValue(User.class);
                     userList.add(user);
                 }
                 progressBar.setVisibility(View.GONE);
 
-                if(userList.isEmpty()){
+                if(userList.isEmpty())
+                {
                     Toast.makeText(MainActivity.this, "No Recipients Found",
                             Toast.LENGTH_SHORT).show();
                     progressBar.setVisibility(View.GONE);
@@ -160,27 +181,33 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             }
 
             @Override
-            public void onCancelled(@NonNull DatabaseError error) {
+            public void onCancelled(@NonNull DatabaseError error)
+            {
 
             }
         });
     }
 
-    private void readDonors() {
+    private void readDonors()
+    {
         DatabaseReference reference = FirebaseDatabase.getInstance().getReference().child("users");
         Query query = reference.orderByChild("type").equalTo("donor");
-        query.addValueEventListener(new ValueEventListener() {
+        query.addValueEventListener(new ValueEventListener()
+        {
             @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
+            public void onDataChange(@NonNull DataSnapshot snapshot)
+            {
                 userList.clear();
-                for(DataSnapshot dataSnapshot : snapshot.getChildren()){
+                for(DataSnapshot dataSnapshot : snapshot.getChildren())
+                {
                     User user = snapshot.getValue(User.class);
                     userList.add(user);
                 }
                 userAdapter.notifyDataSetChanged();
                 progressBar.setVisibility(View.GONE);
 
-                if(userList.isEmpty()){
+                if(userList.isEmpty())
+                {
                     Toast.makeText(MainActivity.this, "No Donors Found",
                             Toast.LENGTH_SHORT).show();
                     progressBar.setVisibility(View.GONE);
@@ -188,18 +215,19 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             }
 
             @Override
-            public void onCancelled(@NonNull DatabaseError error) {
+            public void onCancelled(@NonNull DatabaseError error)
+            {
 
             }
         });
 
-     }*/
-
-
-
+     }
+ */
         @Override
-        public boolean onNavigationItemSelected (@NonNull MenuItem item){
-            switch (item.getItemId()) {
+        public boolean onNavigationItemSelected (@NonNull MenuItem item)
+        {
+            switch (item.getItemId())
+            {
                 case R.id.aplus:
                     Intent intent1 = new Intent(MainActivity.this, CategorySelectedActivity.class);
                     intent1.putExtra("group", "A+");
@@ -260,30 +288,24 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                     break;
 
                 case R.id.donationCapacity:
-                    Intent intent13 = new Intent(MainActivity.this, CategorySelectedActivity.class);
+                    Intent intent13 = new Intent(MainActivity.this, DonationCapacityActivity.class);
                     startActivity(intent13);
                     break;
 
-                case R.id.bmiCheck:
-                    Intent intent14 = new Intent(MainActivity.this, CategorySelectedActivity.class);
-                    startActivity(intent14);
+                case R.id.profile:
+                    //Intent intent9 = new Intent(MainActivity.this, ProfileActivity.class);
+                    //startActivity(intent9);
                     break;
 
-            /*case R.id.profile:
-               Intent intent9 = new Intent(MainActivity.this, ProfileActivity.class);
-               startActivity(intent9);
-               break;
-
-            case R.id.loggout:
-                Intent intent10 = new Intent(MainActivity.this, LoginActivity.class);
-                startActivity(intent10);
-                break;
-               */
+                case R.id.loggout:
+                    //Intent intent10 = new Intent(MainActivity.this, LoginActivity.class);
+                    //startActivity(intent10);
+                    break;
 
             }
             drawerLayout.closeDrawer(GravityCompat.START);
             return true;
         }
-    }
+}
 
 
